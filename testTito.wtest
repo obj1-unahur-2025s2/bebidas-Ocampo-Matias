@@ -1,0 +1,28 @@
+import bebidas.*
+import tito.*
+
+
+describe "test de las aventuras de tito" {
+
+  test "tito inicialmente si consumió 0 de sianuro su velocidad es 0" {
+    assert.equals(0,tito.velocidad())
+  }
+  test "tito toma 200 de wisky y su velocidad pasa a ..." {
+    tito.consumir(200, wisky)
+    assert.equals(0.9 ** 200 * tito.inercia() / tito.peso(), tito.velocidad())
+  }
+
+  test "tito toma 100 de terere y su velocidad pasa a ..." {
+    tito.consumir(100, terere)
+    assert.equals(0.1 * 100 * tito.inercia() / tito.peso(), tito.velocidad())
+  }
+
+  test "tito inicia muerto" {
+    assert.that(tito.estaMuerto())
+  }
+  test "si tito muerto toma terere , revive" {
+    tito.consumir(200, terere)
+    assert.notThat(tito.estaMuerto())
+  }
+
+}
